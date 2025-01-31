@@ -25,15 +25,6 @@ public class BookService {
     @Transactional
     public void createNewBookPosition(NewBookRequest bookRequest) {
 
-        // with Lombok's annotation @Builder
-//        Book newBook =  new Book().builder()
-//                .title(bookRequest.getTitle())
-//                .author(bookRequest.getAuthor())
-//                .registrDate(LocalDateTime.now())
-//                .publicationDate(bookRequest.getPublicationDate())
-//                .build()
-//        ;
-
         Book newBook =  new Book()
                 .setTitle(bookRequest.getTitle())
                 .setAuthor(bookRequest.getAuthor())
