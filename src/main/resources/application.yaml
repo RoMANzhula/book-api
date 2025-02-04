@@ -1,14 +1,20 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5444/${POSTGRES_DB}
+    url: jdbc:postgresql://${DATASOURCE_HOST}:5444/${POSTGRES_DB}
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update  # or 'create' for first create tables
+
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
+    url: jdbc:postgresql://${DATASOURCE_HOST}:5444/${POSTGRES_DB}
+    user: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    schemas: ['public']
 
 
 springdoc:
