@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: romanzhula
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /book-api
+            backend:
+              service:
+                name: book-api
+                port:
+                  number: 80
